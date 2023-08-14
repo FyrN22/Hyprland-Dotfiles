@@ -10,7 +10,12 @@ Menus: Rofi
 
 
 I took some from here:
+
 https://github.com/adi1090x/rofi
+
 https://github.com/shervinsahba/polybar-vpn-controller
+
 https://github.com/catppuccin/catppuccin
+
 https://github.com/christitustech/mybash
+
