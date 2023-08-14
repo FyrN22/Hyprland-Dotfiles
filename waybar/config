@@ -1,0 +1,142 @@
+{
+    "position": "top",
+    "layer": "top",
+    "height": 0,
+    "modules-left": [
+        "wlr/workspaces",
+        "clock",
+        "custom/menu",
+    ],
+    "modules-center": ["custom/vpn"],
+    "modules-right": [
+        "tray",
+        "custom/updates",
+        "custom/language",
+        // "battery",
+        // "backlight",
+        "pulseaudio",
+	      "cpu",
+	      "disk",
+	      "memory",
+        "custom/powermenu",
+    ],
+
+    "hyprland/window": {
+        "format": "{}"
+    },
+    "wlr/workspaces": {
+    "sort-by-number": true,
+    "on-click": "activate",
+    "on-click": "activate",
+    "format": "{icon}",
+    "format-icons": {
+        "1": "",
+        "2": "",
+        "3": "",
+        "4": "",
+        "5": "",
+        "urgent": "",
+        "active": "",
+        "default": ""
+      }
+    },
+        "clock": {
+        "format": "{:%H:%M} <span foreground='#ca9ee6'></span> ",
+        "format-alt": "{:%A, %B %d, %Y (%R)}  ",
+        "tooltip-format": "<tt><small>{calendar}</small></tt>",
+        "calendar": {
+                    "mode"          : "year",
+                    "mode-mon-col"  : 3,
+                    "weeks-pos"     : "right",
+                    "on-scroll"     : 1,
+                    "on-click-right": "mode",
+                    "format": {
+                              "months":     "<span color='#ca9ee6'><b>{}</b></span>",
+                              "days":       "<span color='#f4b8e4'><b>{}</b></span>",
+                              "weeks":      "<span color='#81c8be'><b>W{}</b></span>",
+                              "weekdays":   "<span color='#ef9f76'><b>{}</b></span>",
+                              "today":      "<span color='#e78284'><b><u>{}</u></b></span>"
+                              }
+                    },
+        "actions":  {
+                    "on-click-right": "mode",
+                    "on-click-forward": "tz_up",
+                    "on-click-backward": "tz_down",
+                    "on-scroll-up": "shift_up",
+                    "on-scroll-down": "shift_down"
+                    }
+    },
+    "custom/menu": {
+      "format": "  {}",
+      "on-double-click": "exec  ~/.config/waybar/scripts/menu.sh"
+    },
+    "custom/powermenu": {
+      "format": "{}",
+      "on-double-click": "exec ~/.config/rofi/powermenu/type-2/powermenu.sh"
+    },
+       "custom/music": {
+        "format": "  {}",
+        "escape": true,
+        //"interval": 5,
+        "tooltip": false,
+        "exec": "playerctl metadata --format='{{ title }}'",
+        "on-click": "playerctl play-pause",
+        "max-length": 30
+    },
+    "custom/vpn": {
+        "format" : "<span foreground='#ca9ee6'></span> {}",
+        "escape": true,
+        "exec": "/home/vyrn/.config/waybar/scripts/vpn_module.sh",
+        "on-double-click": "$HOME/.config/waybar/scripts/vpn_module.sh --location-menu &",
+        "on-click-right": "mullvad-vpn",
+        "max-length": 30
+},
+
+    "tray": {
+        "icon-size": 18,
+        "spacing": 10
+    }, 
+    "backlight": {
+        "device": "intel_backlight",
+        "format": "{icon} {percent}%",
+        "format-icons": ["", "", ""],
+        "on-scroll-up": "brightnessctl set 1%+",
+        "on-scroll-down": "brightnessctl set 1%-",
+        "min-length": 6
+    },
+       "cpu": {
+       "interval": 10,
+       "format": "<span foreground='#ca9ee6'></span> {usage}%",
+       "max-length": 10
+       },
+    "disk": {
+        "format": "<span foreground='#ca9ee6'></span> {percentage_free}%",
+        "states": {
+            "warning": 70,
+            "critical": 90
+        }
+    },
+    "memory": {
+    "interval": 30,
+    "format": "<span foreground='#ca9ee6'></span> {}%",
+    "max-length": 10
+    },
+    "pulseaudio": {
+        "format": "<span foreground='#ca9ee6'>{icon}</span> {volume}%",
+        "format-muted": "<span foreground='#928374'></span>",
+        "format-icons": {
+            "headphone": "",
+            "hands-free": "",
+            "headset": "",
+            "phone": "",
+            "portable": "",
+            "car": "",
+            "default": ["", "", ""]
+        },
+    "scroll-step": 1,
+    "on-click": "pavucontrol",
+    "ignored-sinks": ["Easy Effects Sink"]
+
+	}
+    }
+}
