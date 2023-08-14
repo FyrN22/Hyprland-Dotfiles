@@ -23,3 +23,5 @@ https://github.com/catppuccin/catppuccin
 
 https://github.com/christitustech/mybash
 
+https://github.com/linuxmobile/hyprland-dots
+
